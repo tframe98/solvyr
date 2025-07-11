@@ -10,7 +10,7 @@ if (!document.documentElement.classList.contains('dark')) {
 }
 
 // Import your Publishable Key
-const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
+const clerkPubKey = 'pk_test_c2luY2VyZS1mb3dsLTg0LmNsZXJrLmFjY291bnRzLmRldiQ'
 
 if (!clerkPubKey) {
   throw new Error('Missing Publishable Key')
