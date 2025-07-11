@@ -1,0 +1,393 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-slate-50 text-slate-900 transition-colors duration-200;
+  }
+
+  /* Dark mode styles */
+  .dark body {
+    @apply bg-black text-slate-100;
+  }
+
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-orange-500 ring-offset-2 ring-offset-white;
+  }
+
+  .dark *:focus-visible {
+    @apply ring-offset-black;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400;
+  }
+
+  .dark ::-webkit-scrollbar-track {
+    @apply bg-blue-900;
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    @apply bg-blue-700;
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    @apply bg-blue-600;
+  }
+
+  /* Selection styling */
+  ::selection {
+    @apply bg-cyan-200 text-slate-900;
+  }
+
+  .dark ::selection {
+    @apply bg-orange-800 text-slate-100;
+  }
+
+  /* Typography improvements */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl font-bold;
+  }
+
+  h2 {
+    @apply text-3xl font-bold;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold;
+  }
+
+  h4 {
+    @apply text-xl font-semibold;
+  }
+
+  h5 {
+    @apply text-lg font-semibold;
+  }
+
+  h6 {
+    @apply text-base font-semibold;
+  }
+
+  /* Link styling */
+  a {
+    @apply text-orange-600 hover:text-orange-700 transition-colors duration-200;
+  }
+
+  .dark a {
+    @apply text-orange-400 hover:text-orange-300;
+  }
+
+  /* Code styling */
+  code {
+    @apply bg-slate-100 text-slate-800 px-1 py-0.5 rounded text-sm font-mono;
+  }
+
+  .dark code {
+    @apply bg-gray-900 text-slate-200;
+  }
+
+  pre {
+    @apply bg-slate-100 text-slate-800 p-4 rounded-lg overflow-x-auto;
+  }
+
+  .dark pre {
+    @apply bg-gray-900 text-slate-200;
+  }
+}
+
+@layer components {
+  /* Button styles */
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md transition-all duration-200 cursor-pointer border border-transparent;
+  }
+  
+  .btn:focus {
+    @apply outline-none ring-2 ring-orange-500 ring-offset-2 ring-offset-white;
+  }
+  
+  .dark .btn:focus {
+    @apply ring-offset-black;
+  }
+  
+  .btn:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+  
+  .btn-primary {
+    @apply bg-orange-600 text-white hover:bg-orange-700 active:bg-orange-800;
+  }
+  
+  .btn-secondary {
+    @apply bg-slate-100 text-slate-700 border-slate-300 hover:bg-slate-200 active:bg-slate-300;
+  }
+  
+  .dark .btn-secondary {
+    @apply bg-gray-900 text-slate-200 border-gray-700 hover:bg-gray-800 active:bg-gray-700;
+  }
+  
+  .btn-outline {
+    @apply bg-transparent text-orange-600 border-orange-600 hover:bg-orange-50;
+  }
+  
+  .dark .btn-outline {
+    @apply text-orange-400 border-orange-400 hover:bg-gray-900;
+  }
+  
+  .btn-ghost {
+    @apply bg-transparent text-slate-600 hover:bg-slate-100;
+  }
+  
+  .dark .btn-ghost {
+    @apply text-slate-300 hover:bg-gray-900;
+  }
+  
+  .btn-sm {
+    @apply px-2 py-1 text-xs;
+  }
+  
+  .btn-lg {
+    @apply px-6 py-3 text-base;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden;
+  }
+  
+  .dark .card {
+    @apply bg-gray-900 border-gray-700 shadow-lg;
+  }
+  
+  .card-header {
+    @apply p-4 border-b border-slate-200;
+  }
+  
+  .dark .card-header {
+    @apply border-gray-700;
+  }
+  
+  .card-body {
+    @apply p-4;
+  }
+  
+  .card-footer {
+    @apply p-4 border-t border-slate-200;
+  }
+  
+  .dark .card-footer {
+    @apply border-gray-700;
+  }
+
+  /* Form styles */
+  .form-group {
+    @apply mb-4;
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-slate-700 mb-2;
+  }
+  
+  .dark .form-label {
+    @apply text-slate-300;
+  }
+  
+  .form-input {
+    @apply w-full px-3 py-2 text-sm border border-slate-300 rounded-md bg-white text-slate-900 transition-all duration-200;
+  }
+  
+  .form-input:focus {
+    @apply outline-none border-orange-500 ring-2 ring-orange-500 ring-opacity-20;
+  }
+  
+  .form-input:disabled {
+    @apply bg-slate-100 text-slate-500 cursor-not-allowed;
+  }
+  
+  .dark .form-input {
+    @apply bg-gray-900 border-gray-700 text-slate-100;
+  }
+  
+  .dark .form-input:focus {
+    @apply border-orange-400 ring-orange-400;
+  }
+  
+  .dark .form-input:disabled {
+    @apply bg-gray-800 text-slate-400;
+  }
+  
+  .form-textarea {
+    @apply resize-y min-h-[100px];
+  }
+  
+  .form-select {
+    @apply pr-10 bg-no-repeat bg-right bg-[length:1.5em_1.5em];
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  }
+  
+  .dark .form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%9ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  }
+  
+  .form-error {
+    @apply text-xs text-red-600 mt-1;
+  }
+  
+  .dark .form-error {
+    @apply text-red-400;
+  }
+  
+  .form-help {
+    @apply text-xs text-slate-500 mt-1;
+  }
+  
+  .dark .form-help {
+    @apply text-slate-400;
+  }
+
+  /* Badge styles */
+  .badge {
+    @apply inline-flex items-center px-2 py-1 text-xs font-medium rounded-full bg-slate-100 text-slate-700;
+  }
+  
+  .dark .badge {
+    @apply bg-gray-800 text-slate-300;
+  }
+  
+  .badge-primary {
+    @apply bg-orange-100 text-orange-800;
+  }
+  
+  .dark .badge-primary {
+    @apply bg-orange-900 text-orange-200;
+  }
+  
+  .badge-success {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .dark .badge-success {
+    @apply bg-green-900 text-green-200;
+  }
+  
+  .badge-danger {
+    @apply bg-red-100 text-red-800;
+  }
+  
+  .dark .badge-danger {
+    @apply bg-red-900 text-red-200;
+  }
+  
+  .badge-warning {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+  
+  .dark .badge-warning {
+    @apply bg-yellow-900 text-yellow-200;
+  }
+
+  /* Alert styles */
+  .alert {
+    @apply p-3 rounded-md border mb-4;
+  }
+  
+  .alert-info {
+    @apply bg-orange-50 border-orange-200 text-orange-800;
+  }
+  
+  .dark .alert-info {
+    @apply bg-orange-900 border-orange-700 text-orange-200;
+  }
+  
+  .alert-success {
+    @apply bg-green-50 border-green-200 text-green-800;
+  }
+  
+  .dark .alert-success {
+    @apply bg-green-900 border-green-700 text-green-200;
+  }
+  
+  .alert-warning {
+    @apply bg-yellow-50 border-yellow-200 text-yellow-800;
+  }
+  
+  .dark .alert-warning {
+    @apply bg-yellow-900 border-yellow-700 text-yellow-200;
+  }
+  
+  .alert-danger {
+    @apply bg-red-50 border-red-200 text-red-800;
+  }
+  
+  .dark .alert-danger {
+    @apply bg-red-900 border-red-700 text-red-200;
+  }
+}
+
+@layer utilities {
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  /* Gradient utilities */
+  .bg-gradient-primary {
+    @apply bg-gradient-to-r from-orange-500 to-orange-600;
+  }
+
+  .bg-gradient-slate {
+    @apply bg-gradient-to-r from-slate-500 to-slate-600;
+  }
+
+  /* Text gradient utilities */
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent;
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    @apply bg-white/80 backdrop-blur-sm border border-white/20;
+  }
+
+  .dark .glass {
+    @apply bg-gray-900/80 border-gray-700/20;
+  }
+
+  /* Focus ring utilities */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-white;
+  }
+
+  .dark .focus-ring {
+    @apply focus:ring-offset-black;
+  }
+}
